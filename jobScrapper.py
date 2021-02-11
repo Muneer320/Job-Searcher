@@ -18,6 +18,9 @@ def find_jobs():
     soup = BeautifulSoup(html_text, 'lxml')
     jobs = soup.find_all('li', class_ = "clearfix job-bx wht-shd-bx")
 
+    if (not os.path.exists("posts")):
+        os.mkdir('posts')
+    
     try:
         os.mkdir(f'posts/{familiar_skill}')
     except:
